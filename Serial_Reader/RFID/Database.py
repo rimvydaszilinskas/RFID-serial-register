@@ -34,10 +34,27 @@ class Database:
 
         if cursor.rowcount != 0:
             for (id, name) in cursor:
+                cursor.close()
                 return User.User(id, name, rfid)
         else:
+            cursor.close()
             return None
 
-    #def __del__(self):
-        #self.conn.close()
+    def createUser(self, name, rfid):
+        cursor = self.conn.cursor()
+        #query = ("INSERT INTO rfid(name, rfid_value) VALUES(%(name)s, %(rfid_value)s")
+        data = {
+            "name" : name,
+            "rfid_value" : rfid
+        }
+
+        query = ("INSERT INTO rfid(name, rfid_value) VALUES('{}', '{}')".format(name, rfid))
+
+        #cursor.execute(query, data)
+        cursor.execute(query)
+        self.conn.commit()
+        cursor.close()
+
+    def __del__(self):
+        self.conn.close()
 
