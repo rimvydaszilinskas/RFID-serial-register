@@ -21,8 +21,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Database.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="RFID.py" />
-    <Compile Include="serialReader.py">
+    <Compile Include="RFIDReader.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="User.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

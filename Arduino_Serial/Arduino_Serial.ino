@@ -29,7 +29,7 @@ void loop()
     return;
   }
 
-  if( lastCount == 20000){
+  if( lastCount == 500){
     lastCount = 0;
     last = "";
   }
